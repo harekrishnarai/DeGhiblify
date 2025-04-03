@@ -1,0 +1,43 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Streamlit specific
+.streamlit/secrets.toml
+
+# Logs and temporary files
+*.log
+logs/
+
+# Local development settings
+.env
+.env.local
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Specific files to exclude
+verify.py
+create_asset.py
+
+# OS specific
+.DS_Store
+create_assets.py
