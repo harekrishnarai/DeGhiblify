@@ -32,19 +32,19 @@ class OpenAIClient:
         
         # Use GPT-4o (the latest model with vision capabilities)
         vision_response = self.client.chat.completions.create(
-            model="gpt-4o",  # Updated from gpt-4-vision-preview to gpt-4o
+            model="gpt-4o",
             messages=[
-                {
-                    "role": "system",
-                    "content": "You are an expert character designer who can analyze anime characters and describe them as realistic humans. Focus on exact physical features, appearance, expressions, and characteristics that define the character."
-                },
-                {
-                    "role": "user",
-                    "content": [
-                        {"type": "text", "text": "Analyze this Studio Ghibli anime character and create a detailed description for generating a photorealistic human version. Focus on physical features, clothing, expression, and setting. The description will be used for DALL-E image generation."},
-                        {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{image_data}"}}
-                    ]
-                }
+            {
+                "role": "system",
+                "content": "You are an expert at transforming Studio Ghibli artwork into realistic human descriptions. Provide detailed physical characteristics that capture the essence of the Ghibli art in human form."
+            },
+            {
+                "role": "user",
+                "content": [
+                {"type": "text", "text": "Describe how this Studio Ghibli artwork would look as a realistic human. Focus only on essential details needed to create a photorealistic human version with DALL-E."},
+                {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{image_data}"}}
+                ]
+            }
             ],
             max_tokens=500
         )
