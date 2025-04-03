@@ -36,12 +36,12 @@ class OpenAIClient:
             messages=[
             {
                 "role": "system",
-                "content": "You are an expert at transforming Studio Ghibli artwork into realistic human descriptions. Provide detailed physical characteristics that capture the essence of the Ghibli art in human form."
+                "content": "You are an expert at transforming Studio Ghibli artwork into realistic human. Provide detailed physical characteristics that capture the essence of the Ghibli art in human form."
             },
             {
                 "role": "user",
                 "content": [
-                {"type": "text", "text": "Describe how this Studio Ghibli artwork would look as a realistic human. Focus only on essential details needed to create a photorealistic human version with DALL-E."},
+                {"type": "text", "text": "Describe how this Studio Ghibli artwork would look as a realistic human. Focus only on essential details needed to create a realistic human version with DALL-E."},
                 {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{image_data}"}}
                 ]
             }
