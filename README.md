@@ -35,7 +35,7 @@ DeGhiblify
 
 1. Clone this repository:
    ```
-   git clone https://github.com/yourusername/DeGhiblify.git
+   git clone https://github.com/harekrishnarai/DeGhiblify.git
    cd DeGhiblify
    ```
 
