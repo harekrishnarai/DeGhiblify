@@ -32,22 +32,36 @@ class OpenAIClient:
         
         # Use GPT-4o (the latest model with vision capabilities)
         vision_response = self.client.chat.completions.create(
-            model="gpt-4o",
-            messages=[
+        model="gpt-4o",
+        messages=[
             {
                 "role": "system",
-                "content": "You are an expert at transforming Studio Ghibli artwork into realistic human. Provide detailed physical characteristics that capture the essence of the Ghibli art in human form."
+                "content": (
+                    "You are an expert in character realism and visual storytelling. "
+                    "Your task is to faithfully transform characters drawn in Studio Ghibli's art style into lifelike human portraits, suitable for realistic generation using DALL-E. "
+                    "Focus on capturing the emotional essence, personality, and signature traits of the character while translating anime-style elements (e.g., hair, eyes, facial structure, clothing) into natural human features. "
+                    "Be descriptive about age, facial expressions, ethnic appearance, hairstyle, skin texture, clothing material, and atmosphere—while staying true to the original Ghibli aesthetic and mood."
+                )
             },
             {
                 "role": "user",
                 "content": [
-                {"type": "text", "text": "Describe how this Studio Ghibli artwork would look as a realistic human. Focus only on essential details needed to create a realistic human version with DALL-E."},
-                {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{image_data}"}}
+                    {
+                        "type": "text",
+                        "text": (
+                            "Analyze the Studio Ghibli artwork and describe in detail how the character would appear as a realistic human. "
+                            "Include defining features necessary to reconstruct the character in photorealistic form with DALL-E. "
+                            "Avoid anime-style language; instead, describe the character as a real person someone might meet in the real world. "
+                            "Maintain the artistic soul and emotional nuance of the original piece."
+                        )
+                    },
+                    {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{image_data}"}}
                 ]
             }
-            ],
-            max_tokens=500
-        )
+        ],
+        max_tokens=700
+    )
+
         
         # Extract the character description
         character_description = vision_response.choices[0].message.content
